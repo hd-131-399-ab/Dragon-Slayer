@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Item : MonoBehaviour
 {
     public int ID;
-    public string Name;
 
-    public Item(int iD, string name)
-    {
-        ID = iD;
-        Name = name;
-    }
+    public Image Img;
+
+    public GameObject ItemPrefab;
+
+    public bool IsEquiped;
+    public bool IsVirtual;
 }

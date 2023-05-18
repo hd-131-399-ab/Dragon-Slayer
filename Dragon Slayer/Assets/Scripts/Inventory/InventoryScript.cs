@@ -19,6 +19,10 @@ public class InventoryScript : MonoBehaviour
         {
             Equip(GetItemByID(Items[0]));
         }
+        else if (Input.GetKey(KeyCode.Alpha2) && Items[1] != 0)
+        {
+            Equip(GetItemByID(Items[1]));
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -55,11 +59,11 @@ public class InventoryScript : MonoBehaviour
     {
         switch (iD)
         {
-            case 0:
-                return new Item(0, "organspendeausweis");
+            //case 0:
+            //    return new Item(0, "organspendeausweis");
 
-            case 1:
-                return new Item(1, "bow");
+            //case 1:
+            //    return new Item(1, "bow");
 
             default:
                 return null;
