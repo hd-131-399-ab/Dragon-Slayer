@@ -1264,6 +1264,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7daee681137158e42b9fec6e7e3e3cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 0
+  Maxhealth: 100
+  Damage: 50
+  HealthBar: {fileID: 0}
+  Player: {fileID: 1344484332}
 --- !u!114 &1344484340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1276,7 +1281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411c4fadf5c545e4cad7516579881e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Zombie: {fileID: 5068898877567313890, guid: 6d8ad0c9ba1e7f2428fc8e9705a9706b, type: 3}
+  Zombie: {fileID: 3929359585614595267, guid: 6d8ad0c9ba1e7f2428fc8e9705a9706b, type: 3}
 --- !u!114 &1344484341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1289,7 +1294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c5d50f9eb8db94799fbc5b02af5e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
 --- !u!1 &1750404340
 GameObject:
   m_ObjectHideFlags: 0
