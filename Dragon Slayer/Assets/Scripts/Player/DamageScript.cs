@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class DamageScript : MonoBehaviour
 {
-    public int Health;
-    public int Maxhealth;
+    public float Health;
+    public float Maxhealth;
     public int Damage;
 
     public Image HealthBar;
@@ -21,7 +21,7 @@ public class DamageScript : MonoBehaviour
 
     private void Update()
     {
-        //HealthBar.fillAmount = Health / Maxhealth;
+        HealthBar.fillAmount = Health / Maxhealth;
 
         if (Health <= 0)
         {
