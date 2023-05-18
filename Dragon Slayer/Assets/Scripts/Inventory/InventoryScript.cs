@@ -58,6 +58,9 @@ public class InventoryScript : MonoBehaviour
             case 0:
                 return new Item(0, "organspendeausweis");
 
+            case 1:
+                return new Item(1, "bow");
+
             default:
                 return null;
         }
