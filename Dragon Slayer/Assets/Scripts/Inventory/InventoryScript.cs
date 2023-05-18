@@ -25,7 +25,8 @@ public class InventoryScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {
-            AddToInventory(collision.gameObject.GetComponent<Item>());         
+            AddToInventory(collision.gameObject.GetComponent<Item>());
+            Destroy(collision.gameObject);
         }
     }
 
