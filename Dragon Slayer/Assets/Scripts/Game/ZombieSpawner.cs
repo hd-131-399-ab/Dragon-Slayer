@@ -9,7 +9,7 @@ public class ZombieSpawner : MonoBehaviour
 
     void Start()
     {
-        //Zombie.GetComponent<AIDestinationSetter>().target = gameObject.transform;
+        Zombie.GetComponent<AIDestinationSetter>().target = gameObject.transform;
 
         Instantiate(Zombie, new Vector2(0, -1), Quaternion.identity);
     }
