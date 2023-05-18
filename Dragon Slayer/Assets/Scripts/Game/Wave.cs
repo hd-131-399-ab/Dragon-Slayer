@@ -8,6 +8,18 @@ public class Wave : MonoBehaviour
     public int SpawnAmount;
     public int ZombieSpawnAmount;
 
+    public GameObject Zombie;
+    public GameObject Player;
+
+    EnemySpawner _Spawner;
+
+    private void Start()
+    {
+        _Spawner = new(Zombie, Player);
+
+        NextWave();
+    }
+
     public void NextWave()
     {
         WaveCount++;
@@ -54,12 +66,17 @@ public class Wave : MonoBehaviour
 
     private void SpawnEnemys()
     {
-        for (int i = 0; i < 10; i++)
+        while (SpawnAmount != 0)
         {
-            if (ZombieSpawnAmount == 0)
-                break;
+            for (int i = 0; i < 10; i++)
+            {
+                if (SpawnAmount == 0)
+                    break;
 
-            
+                SpawnAmount--;
+
+                _Spawner.SpawnEnemy();
+            }
         }
     }
 }

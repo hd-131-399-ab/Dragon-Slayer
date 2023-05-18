@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Currency : MonoBehaviour
+public class DragonEssence : MonoBehaviour
 {
     public Text CreditBalanceIndicator;
-
-    int pointsToAdd = 30;
 
     int CreditBalance;
 
     void Update()
     {
-        // Noch Nicht fertig Offensichtlich
+        // Noch nicht fertig offensichtlich
 
         CreditBalanceIndicator.text = CreditBalance.ToString();
     }
