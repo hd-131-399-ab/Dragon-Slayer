@@ -24,8 +24,8 @@ public class Wave : MonoBehaviour
     {
         WaveCount++;
 
-        CalculateSpawnAmount();
-        CalculateSpawnDistribution();
+        //CalculateSpawnAmount();
+        //CalculateSpawnDistribution();
         SpawnEnemys();
     }
 
@@ -68,15 +68,9 @@ public class Wave : MonoBehaviour
     {
         while (SpawnAmount != 0)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                if (SpawnAmount == 0)
-                    break;
+            SpawnAmount--;
 
-                SpawnAmount--;
-
-                _Spawner.SpawnEnemy();
-            }
+            _Spawner.SpawnEnemy();
         }
     }
 }
