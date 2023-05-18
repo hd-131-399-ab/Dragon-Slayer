@@ -9,7 +9,7 @@ public class DamageScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            
+            GetComponent<Player>().Health -= 40;
         }
     }
 }
