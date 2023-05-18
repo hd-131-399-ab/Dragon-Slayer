@@ -6,13 +6,15 @@ public class Wave : MonoBehaviour
 {
     public int WaveCount;
     public int SpawnAmount;
-    public int ZombieAmount;
+    public int ZombieSpawnAmount;
 
     public void NextWave()
     {
         WaveCount++;
 
         CalculateSpawnAmount();
+        CalculateSpawnDistribution();
+        SpawnEnemys();
     }
 
     private void CalculateSpawnAmount()
@@ -47,11 +49,17 @@ public class Wave : MonoBehaviour
 
     private void CalculateSpawnDistribution()
     {
-        ZombieAmount = SpawnAmount;
+        ZombieSpawnAmount = SpawnAmount;
     }
 
     private void SpawnEnemys()
     {
+        for (int i = 0; i < 10; i++)
+        {
+            if (ZombieSpawnAmount == 0)
+                break;
 
+            
+        }
     }
 }
