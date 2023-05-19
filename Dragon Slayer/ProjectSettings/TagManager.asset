@@ -13,7 +13,7 @@ TagManager:
   - Obstacle
   - Water
   - UI
-  - Border
+  - 
   - 
   - 
   - 
@@ -40,9 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Border
     uniqueID: 2401701683
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0

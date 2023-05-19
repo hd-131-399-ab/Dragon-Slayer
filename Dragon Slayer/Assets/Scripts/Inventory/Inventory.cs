@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
 
     public Image Slot1;
     public Image Slot2;
+    public Image SelectionImage;
 
     private void Start()
     {
@@ -22,13 +23,15 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1) && Items[0] != 0)
+        if (Input.GetKey(KeyCode.Alpha1) && Items[0] != -1)
         {
             Equip(Items[0]);
+            MoveSelectionImageToSlot(Slot1);
         }
-        else if (Input.GetKey(KeyCode.Alpha2) && Items[1] != 0)
+        else if (Input.GetKey(KeyCode.Alpha2) && Items[1] != -1)
         {
             Equip(Items[1]);
+            MoveSelectionImageToSlot(Slot2);
         }
     }
 
@@ -48,7 +51,8 @@ public class Inventory : MonoBehaviour
             Items[0] = itemBehaviour.ID;
             Equip(Items[0]);
         }
-        else if (Items[1] == -1)
+        
+        if (Items[1] == -1 && Items[0] != -1)
         {
             Items[1] = itemBehaviour.ID;
             Equip(Items[1]);
@@ -75,6 +79,22 @@ public class Inventory : MonoBehaviour
     {
         EquipedItem = id;
 
+        SelectionImage.enabled = true;
+
         //Add Bowsystem to player
+    }
+
+    public void MoveSelectionImageToSlot(Image slot)
+    {
+        if (slot == Slot1)
+        {
+            SelectionImage.enabled = true;
+            SelectionImage.transform.position = new Vector2(25, -30);
+        }
+        else
+        {
+            SelectionImage.enabled = true;
+            SelectionImage.transform.position = new Vector2(100, -30);
+        }
     }
 }
