@@ -16,6 +16,8 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        SelectionImage.enabled = false;
+
         Items = new int[2];
         Items[0] = -1;
         Items[1] = -1;
