@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Bow : MonoBehaviour
 {
-    public int _RangeX;
-    public int _RangeY;
+    public int _Range;
 
     public int _Damage;
     public float _Velocity;
