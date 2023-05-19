@@ -20,11 +20,11 @@ public class AimingSystem : MonoBehaviour
     void Update()
     {
         // Wenn der Bogen ausgewählt ist dann läuft das aiming system durchgehend durch \\
-
+        // Bei der X achse nur die Halfte von der y Achse nehemen
         mousePosX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
         mousePosY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
 
-        if (mousePosX > _Bow._Range || mousePosY > _Bow._Range)
+        if (mousePosX > _Bow._RangeX || mousePosY > _Bow._RangeY)
         {
             color = Color.red;
         }
