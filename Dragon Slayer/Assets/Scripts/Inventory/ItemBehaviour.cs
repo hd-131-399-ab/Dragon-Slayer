@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class ItemBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int ID;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //Bow: Shoot, Aim etc.
 }

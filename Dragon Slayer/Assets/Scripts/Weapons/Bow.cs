@@ -14,19 +14,17 @@ public class Bow : MonoBehaviour
 
     Color color = Color.clear;
 
-    private InventoryScript _Inventory;
-    public Item EquipedItem;
+    private Inventory _Inventory;
 
     private void Start()
     {
         LineRenderer l = gameObject.AddComponent<LineRenderer>();
-        _Inventory = gameObject.GetComponent<InventoryScript>();
-        EquipedItem = gameObject.GetComponent<Item>();
+        _Inventory = gameObject.GetComponent<Inventory>();
     }
 
     void Update()
     {
-
+        
     }
 
     private void BowRaycast()
