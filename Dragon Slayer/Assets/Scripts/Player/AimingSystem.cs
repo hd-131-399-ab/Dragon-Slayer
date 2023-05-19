@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AimingSystem : MonoBehaviour
 {
+    // Ja Hort wenn du den Drang hast dann darfts du das Script refactorn \\ 
+    
     private float mousePosX;
     private float mousePosY;
 
