@@ -2420,7 +2420,7 @@ MonoBehaviour:
   _Range: 0
   _Damage: 20
   _Velocity: 0
-  _Interval: 0
+  _SetInterval: 2
 --- !u!114 &1344484344
 MonoBehaviour:
   m_ObjectHideFlags: 0

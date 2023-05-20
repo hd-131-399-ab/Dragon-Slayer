@@ -9,12 +9,17 @@ public class Bow : MonoBehaviour
 
     public int _Damage;
     public float _Velocity;
-    public float _Interval;
+    public float _SetInterval;
 
+    private float _Interval;
     private float mousePosX;
     private float mousePosY;
 
     Color color = Color.clear;
+
+    RaycastHit2D hit;
+
+    Vector2 rayCastDirection;
 
     private Inventory _Inventory;
     private EnemyHealth _EnemyHealth;
@@ -25,42 +30,20 @@ public class Bow : MonoBehaviour
     {
         LineRenderer l = gameObject.AddComponent<LineRenderer>();
         _Inventory = gameObject.GetComponent<Inventory>();
+        _Interval = _SetInterval;
     }
 
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
-            if (true)
+            if (_Inventory.EquipedItem == 1 || _Interval == 0)
             {
-                // Bug Irgenwas was nicht auskommentiert ist fehlt die object refernce
+                print("Fire");
 
-                Vector2 ray = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-
-                RaycastHit2D hit = Physics2D.Raycast(ray, ray);
-
-                _HitEnemy = GameObject.Find("Zombie");
-
-                if (hit.collider.gameObject.tag == "Enemy" || hit.collider.gameObject.name == "Zombie")
-                {
-                    _EnemyHealth = _HitEnemy.GetComponent<EnemyHealth>();
-
-                    _EnemyHealth._Instance = hit.collider.gameObject;
-                }
+                _Interval = _SetInterval;
             }
-        }
-    }
-
-    private void BowRaycast()
-    {
-        Vector2 ray = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-
-        RaycastHit2D hit = Physics2D.Raycast(ray, ray);
-
-        if (hit.collider.gameObject.tag == "Enemy")
-        {
-            _EnemyHealth.Health -= _Damage;
-            _EnemyHealth._Instance = hit.collider.gameObject;
         }
     }
 }
