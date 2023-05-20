@@ -15,6 +15,8 @@ public class Inventory : MonoBehaviour
     public Image Slot2;
     public Image SelectionImage;
 
+    private ItemBehaviour _ItemBehaviour;
+
     private void Start()
     {
         SelectionImage.enabled = false;
@@ -28,12 +30,12 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            Equip(Items[0]);
+            EquipItem();
             MoveSelectionImageToSlot(1);
         }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
-            Equip(Items[1]);
+            EquipItem();
             MoveSelectionImageToSlot(2);
         }
     }
@@ -42,7 +44,9 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {
-            AddToInventory(collision.gameObject.GetComponent<ItemBehaviour>());
+            _ItemBehaviour = collision.gameObject.GetComponent<ItemBehaviour>();
+
+            AddToInventory(_ItemBehaviour);
             Destroy(collision.gameObject);
         }
     }
@@ -57,13 +61,13 @@ public class Inventory : MonoBehaviour
         if (Items[0] == -1)
         {
             Items[0] = itemBehaviour.ID;
-            Equip(Items[0]);
+            EquipItem();
             MoveSelectionImageToSlot(1);
         }        
         else if (Items[1] == -1 && Items[0] != -1)
         {
             Items[1] = itemBehaviour.ID;
-            Equip(Items[1]);
+            EquipItem();
             MoveSelectionImageToSlot(2);
         }
 
@@ -84,11 +88,11 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void Equip(int id)
+    public void EquipItem()
     {
-        EquipedItem = id;
+        EquipedItem = _ItemBehaviour.ID;
 
-        
+        _ItemBehaviour.LoadItemBehaviour();
     }
 
     public void MoveSelectionImageToSlot(int slot)
