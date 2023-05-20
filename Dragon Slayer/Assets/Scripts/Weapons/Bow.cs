@@ -30,10 +30,9 @@ public class Bow : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (true)
-            {
-                BowRaycast();
-            }
+            //if smth mit Inventar
+
+           BowRaycast();
         }
     }
 

@@ -53,13 +53,13 @@ public class Inventory : MonoBehaviour
         {
             Items[0] = itemBehaviour.ID;
             Equip(Items[0]);
-            //MoveSelectionImageToSlot(1);
+            MoveSelectionImageToSlot(1);
         }        
         else if (Items[1] == -1 && Items[0] != -1)
         {
             Items[1] = itemBehaviour.ID;
             Equip(Items[1]);
-            //MoveSelectionImageToSlot(2);
+            MoveSelectionImageToSlot(2);
         }
 
         //Austauschen: Droppen => Überschreiben
@@ -83,7 +83,8 @@ public class Inventory : MonoBehaviour
     {
         EquipedItem = id;
 
-        //Add Bowsystem to player
+        gameObject.AddComponent<Bow>();
+        gameObject.AddComponent<AimingSystem>();
     }
 
     public void MoveSelectionImageToSlot(int slot)

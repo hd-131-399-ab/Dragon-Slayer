@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class AimingSystem : MonoBehaviour
 {
-    // Ja Hort wenn du den Drang hast dann darfts du das Script refactorn \\ 
-    
     private float mousePosX;
     private float mousePosY;
 
@@ -14,21 +12,21 @@ public class AimingSystem : MonoBehaviour
 
     private Vector3 _GameObjectPosition;
 
-    Color color = Color.clear;
+    Color _Color = Color.clear;
 
     private Bow _Bow;
 
     private void Start()
     {
-        LineRenderer l = gameObject.AddComponent<LineRenderer>();
+        gameObject.AddComponent<LineRenderer>();
         _Bow = gameObject.GetComponent<Bow>();
     }
 
     void Update()
     {
-       CheckForGameObject();   
+        CheckForGameObject(); 
 
-        // Wenn der Bogen ausgewählt ist dann läuft das aiming system durchgehend durch \\
+        // Wenn der Bogen ausgewählt ist dann läuft das aiming system durchgehend durch
         // Bei der X achse nur die Halfte von der y Achse nehemen
         mousePosX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
         mousePosY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
@@ -38,14 +36,12 @@ public class AimingSystem : MonoBehaviour
 
         if (_CalculatedDiffrenceX > _Bow._Range || _CalculatedDiffrenceY > _Bow._Range)
         {
-            color = Color.red;
+            _Color = Color.red;
         }
         else
         {
-            color = Color.green;
+            _Color = Color.green;
         }
-
-
 
         List<Vector3> pos = new List<Vector3>();
         pos.Add(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y));
@@ -54,7 +50,7 @@ public class AimingSystem : MonoBehaviour
 
         pos.Add(new Vector3(mousePosX, mousePosY));
         l.material = new Material(Shader.Find("Sprites/Default"));
-        l.material.color = color;
+        l.material.color = _Color;
         l.startWidth = 0.1f;
         l.endWidth = 0.1f;
         l.SetPositions(pos.ToArray());
