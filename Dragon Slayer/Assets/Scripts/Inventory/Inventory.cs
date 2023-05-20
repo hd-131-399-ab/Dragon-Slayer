@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.PlayerSettings;
 
 public class Inventory : MonoBehaviour
 {
@@ -25,15 +26,15 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1) && Items[0] != -1)
+        if (Input.GetKey(KeyCode.Alpha1))
         {
             Equip(Items[0]);
-            MoveSelectionImageToSlot(Slot1);
+            MoveSelectionImageToSlot(1);
         }
-        else if (Input.GetKey(KeyCode.Alpha2) && Items[1] != -1)
+        else if (Input.GetKey(KeyCode.Alpha2))
         {
             Equip(Items[1]);
-            MoveSelectionImageToSlot(Slot2);
+            MoveSelectionImageToSlot(2);
         }
     }
 
@@ -52,12 +53,13 @@ public class Inventory : MonoBehaviour
         {
             Items[0] = itemBehaviour.ID;
             Equip(Items[0]);
-        }
-        
-        if (Items[1] == -1 && Items[0] != -1)
+            //MoveSelectionImageToSlot(1);
+        }        
+        else if (Items[1] == -1 && Items[0] != -1)
         {
             Items[1] = itemBehaviour.ID;
             Equip(Items[1]);
+            //MoveSelectionImageToSlot(2);
         }
 
         //Austauschen: Droppen => Überschreiben
@@ -81,22 +83,20 @@ public class Inventory : MonoBehaviour
     {
         EquipedItem = id;
 
-        SelectionImage.enabled = true;
-
         //Add Bowsystem to player
     }
 
-    public void MoveSelectionImageToSlot(Image slot)
+    public void MoveSelectionImageToSlot(int slot)
     {
-        if (slot == Slot1)
+        if (slot == 1)
         {
             SelectionImage.enabled = true;
-            SelectionImage.transform.position = new Vector2(25, -30);
+            SelectionImage.rectTransform.anchoredPosition = new Vector2(25, -25);
         }
         else
         {
             SelectionImage.enabled = true;
-            SelectionImage.transform.position = new Vector2(100, -30);
+            SelectionImage.rectTransform.anchoredPosition = new Vector2(95, -25);
         }
     }
 }
