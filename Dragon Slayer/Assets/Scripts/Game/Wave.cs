@@ -26,6 +26,7 @@ public class Wave : MonoBehaviour
 
         //CalculateSpawnAmount();
         //CalculateSpawnDistribution();
+
         SpawnEnemys();
     }
 

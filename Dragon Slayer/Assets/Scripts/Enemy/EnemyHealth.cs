@@ -7,6 +7,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public float MaxHealth;
 
+    public GameObject _Instance;
+
     private float _Health;
     public float Health
     {
@@ -15,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
         {
             if (value <= 0)
             {
-                Destroy(this);
+                Destroy(_Instance);
             }
         }
     }
@@ -25,5 +27,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         _Health = MaxHealth;
+
+        print(Health);
     }
 }

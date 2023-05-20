@@ -2412,13 +2412,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344484332}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04631eaaf971f4344a0fb3b1c2ffbae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _Range: 0
-  _Damage: 100
+  _Damage: 20
   _Velocity: 0
   _Interval: 0
 --- !u!114 &1344484344
@@ -2428,7 +2428,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344484332}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6b11c591a1d5da4b9b8ce6d012753f8, type: 3}
   m_Name: 
