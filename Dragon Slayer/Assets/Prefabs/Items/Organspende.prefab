@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6256595438882327089}
   - component: {fileID: 6256595438882327088}
   - component: {fileID: 6256595438882327095}
-  - component: {fileID: 9119181888645372156}
   m_Layer: 0
   m_Name: Organspende
   m_TagString: Untagged
@@ -134,15 +133,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &9119181888645372156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6256595438882327091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6f127f4d4551c243b9751672b9525b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

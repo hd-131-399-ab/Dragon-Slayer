@@ -10,19 +10,14 @@ public class Bow : MonoBehaviour
     public float _Velocity;
     public float _Interval;
 
-    private float mousePosX;
-    private float mousePosY;
-
-    Color color = Color.clear;
-
-    private Inventory _Inventory;
-    private EnemyHealth _EnemyHealth;
+    private Inventory PlayerInventory;
+    private EnemyHealthScript _EnemyHealth;
 
     private void Start()
     {
         LineRenderer l = gameObject.AddComponent<LineRenderer>();
-        _Inventory = gameObject.GetComponent<Inventory>();
-        _EnemyHealth = gameObject.GetComponent<EnemyHealth>();
+        PlayerInventory = gameObject.GetComponent<Inventory>();
+        _EnemyHealth = gameObject.GetComponent<EnemyHealthScript>();
 
     }
 
@@ -32,7 +27,7 @@ public class Bow : MonoBehaviour
         {
             //if smth mit Inventar
 
-           BowRaycast();
+            BowRaycast();
         }
     }
 

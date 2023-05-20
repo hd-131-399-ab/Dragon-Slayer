@@ -5,6 +5,10 @@ using UnityEngine;
 public class ItemBehaviour : MonoBehaviour
 {
     public int ID;
+    public GameObject Player;
 
-    //Bow: Shoot, Aim etc.
+    public virtual void LoadItemBehaviour()
+    {
+
+    }
 }

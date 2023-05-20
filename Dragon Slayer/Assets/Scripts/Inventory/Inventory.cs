@@ -49,6 +49,11 @@ public class Inventory : MonoBehaviour
 
     public void AddToInventory(ItemBehaviour itemBehaviour)
     {
+        if (itemBehaviour == null)
+        {
+            print("joa");
+        }
+
         if (Items[0] == -1)
         {
             Items[0] = itemBehaviour.ID;
@@ -83,8 +88,7 @@ public class Inventory : MonoBehaviour
     {
         EquipedItem = id;
 
-        gameObject.AddComponent<Bow>();
-        gameObject.AddComponent<AimingSystem>();
+        
     }
 
     public void MoveSelectionImageToSlot(int slot)

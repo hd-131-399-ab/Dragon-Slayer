@@ -14,12 +14,12 @@ public class AimingSystem : MonoBehaviour
 
     Color _Color = Color.clear;
 
-    private Bow _Bow;
+    private Bow Bow;
 
     private void Start()
     {
         gameObject.AddComponent<LineRenderer>();
-        _Bow = gameObject.GetComponent<Bow>();
+        Bow = gameObject.GetComponent<Bow>();
     }
 
     void Update()
@@ -34,7 +34,7 @@ public class AimingSystem : MonoBehaviour
         _CalculatedDiffrenceX = (_GameObjectPosition.x - mousePosX);
         _CalculatedDiffrenceY = (_GameObjectPosition.y - mousePosY);
 
-        if (_CalculatedDiffrenceX > _Bow._Range || _CalculatedDiffrenceY > _Bow._Range)
+        if (_CalculatedDiffrenceX > Bow._Range || _CalculatedDiffrenceY > Bow._Range)
         {
             _Color = Color.red;
         }
