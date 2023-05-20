@@ -35,6 +35,7 @@ public class Bow : MonoBehaviour
 
     void Update()
     {
+        _Interval -= Time.deltaTime;
 
         if (Input.GetMouseButtonDown(0))
         {
