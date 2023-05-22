@@ -14,5 +14,6 @@ public class MovementScript : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         Player.transform.Translate(new Vector2(horizontalInput, verticalInput) * Speed * Time.deltaTime);
+        //
     }
 }
