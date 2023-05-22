@@ -43,13 +43,13 @@ public class Bow : MonoBehaviour
 
     void FireWeapon()
     {
-        if (_Inventory.EquipedItem == 1 )
-        {
-            print("Fire");
+        //if (_Inventory.EquipedItem == 1)
+        //{
+        //    print("Fire");
 
-            _Interval = _SetInterval;
+        //    _Interval = _SetInterval;
 
-            print(_Interval);
-        }
+        //    print(_Interval);
+        //}
     }
 }
