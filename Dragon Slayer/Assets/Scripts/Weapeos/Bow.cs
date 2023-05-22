@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bow : MonoBehaviour
@@ -8,38 +7,49 @@ public class Bow : MonoBehaviour
 
     public int _Damage;
     public float _Velocity;
-    public float _Interval;
+    public float _SetInterval;
 
-    private Inventory PlayerInventory;
+    private float _Interval;
+    private float mousePosX;
+    private float mousePosY;
+
+    Color color = Color.clear;
+
+    RaycastHit2D hit;
+
+    Vector2 rayCastDirection;
+
+    private Inventory _Inventory;
     private EnemyHealthScript _EnemyHealth;
+
+    private GameObject _HitEnemy;
 
     private void Start()
     {
         LineRenderer l = gameObject.AddComponent<LineRenderer>();
-        PlayerInventory = gameObject.GetComponent<Inventory>();
-        _EnemyHealth = gameObject.GetComponent<EnemyHealthScript>();
+        _Inventory = gameObject.GetComponent<Inventory>();
+        _Interval = _SetInterval;
+
 
     }
 
     void Update()
-    {
+    {     
         if (Input.GetMouseButtonDown(0))
         {
-            //if smth mit Inventar
-
-            BowRaycast();
+            FireWeapon();
         }
     }
 
-    private void BowRaycast()
+    void FireWeapon()
     {
-        Vector2 ray = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-
-        RaycastHit2D hit = Physics2D.Raycast(ray, ray);
-
-        if (hit.collider.gameObject.tag == "Enemy")
+        if (_Inventory.EquipedItem == 1 )
         {
-            _EnemyHealth.Health -= _Damage;
+            print("Fire");
+
+            _Interval = _SetInterval;
+
+            print(_Interval);
         }
     }
 }
