@@ -11,8 +11,6 @@ public class Bow : MonoBehaviour
 
     private bool allowFire = true;
 
-    private IEnumerator example;
-
     private Inventory _Inventory;
     private EnemyHealthScript _EnemyHealth;
 
@@ -22,20 +20,8 @@ public class Bow : MonoBehaviour
     {
         _Inventory = gameObject.GetComponent<Inventory>();
 
-        example = Example();
+        _Interval = 2;
     }
-
-    IEnumerator Example()
-    {
-        allowFire = false;
-
-        print(Time.time);
-
-        yield return new WaitForSeconds(_Interval);
-
-        print(Time.time);
-    }
-
     void Update()
     {     
         if (Input.GetMouseButtonDown(0) && allowFire)
@@ -45,11 +31,22 @@ public class Bow : MonoBehaviour
         }
     }
 
+    IEnumerator Example()
+    {
+        FireWeapon();
+        
+        yield return new WaitForSeconds(_Interval);
+
+        allowFire = true;
+    }
+
     void FireWeapon()
     {
         if (_Inventory.EquipedItem == 1)
         {
             print("Shoot");
+
+            allowFire = false;
         }
     }
 }
