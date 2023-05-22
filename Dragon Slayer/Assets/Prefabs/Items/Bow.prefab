@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3625307858128603534}
   - component: {fileID: 3625307858128603533}
   - component: {fileID: 4547094415710103847}
+  - component: {fileID: -8113604487063584801}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -111,3 +112,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &-8113604487063584801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625307858128603531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad462c56721869e4ab30e3cc27557be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1
+  Player: {fileID: 0}
+  ScriptNames: []

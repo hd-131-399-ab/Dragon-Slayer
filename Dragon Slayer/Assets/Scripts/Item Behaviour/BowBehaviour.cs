@@ -7,10 +7,15 @@ public class BowBehaviour : ItemBehaviour
 {
     public List<string> ScriptNames;
 
-	public BowBehaviour()
+    public BowBehaviour()
 	{
 		ID = 1;
         ScriptNames = new();
+    }
+
+    private void Start()
+    {
+        Player = GameObject.FindWithTag("Player");
     }
 
     public override void LoadItemBehaviour()

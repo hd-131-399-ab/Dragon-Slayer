@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.PlayerSettings;
@@ -7,36 +9,66 @@ using static UnityEditor.PlayerSettings;
 public class Inventory : MonoBehaviour
 {
     public List<Sprite> Images;
-    public int[] Items;
+    public GameObject[] Items;
 
-    public int EquipedItem;
+    public GameObject EquipedItem;
 
     public Image Slot1;
     public Image Slot2;
     public Image SelectionImage;
 
     private ItemBehaviour _ItemBehaviour;
+    private GameObject Item;
 
     private void Start()
     {
         SelectionImage.enabled = false;
 
-        Items = new int[2];
-        Items[0] = -1;
-        Items[1] = -1;
+        Items = new GameObject[2];
+        Items[0] = null;
+        Items[1] = null;
     }
 
     private void Update()
     {
+        //KeyCode key = KeyCode.Alpha0;
+
+        //switch (key)
+        //{
+        //    case KeyCode.Alpha0:
+        //        //EquipItem(Items[10]);
+        //        break;
+        //    case KeyCode.Alpha1:
+        //        EquipItem(Items[0]);
+        //        break;
+        //    case KeyCode.Alpha2:
+        //        EquipItem(Items[1]);
+        //        break;
+        //    case KeyCode.Alpha3:
+        //        break;
+        //    case KeyCode.Alpha4:
+        //        break;
+        //    case KeyCode.Alpha5:
+        //        break;
+        //    case KeyCode.Alpha6:
+        //        break;
+        //    case KeyCode.Alpha7:
+        //        break;
+        //    case KeyCode.Alpha8:
+        //        break;
+        //    case KeyCode.Alpha9:
+        //        break;
+        //}
+
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            EquipItem();
-            MoveSelectionImageToSlot(1);
+            EquipItem(Items[0]);
+            MoveSelectionImageToSlot(0);
         }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
-            EquipItem();
-            MoveSelectionImageToSlot(2);
+            EquipItem(Items[1]);
+            MoveSelectionImageToSlot(1);
         }
     }
 
@@ -44,60 +76,71 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {
-            _ItemBehaviour = collision.gameObject.GetComponent<ItemBehaviour>();
+            collision.gameObject.SetActive(false);
+            Item = collision.gameObject;
+            _ItemBehaviour = Item.GetComponent<ItemBehaviour>();
 
-            AddToInventory(_ItemBehaviour);
-            Destroy(collision.gameObject);
+            AddToInventory();
+        }
+        //else if (Input.GetKey(KeyCode.D))
+        //{
+        //    collision.gameObject.SetActive(false);
+        //    Item = collision.gameObject;
+        //}
+    }
+
+    public void AddToInventory()
+    {
+        for (int i = 0; i < Items.Length; i++)
+        {
+            if (Items[i] == null)
+            {
+                Items[i] = Item;
+
+                EquipItem(Item);
+                UpdateGUI();
+                MoveSelectionImageToSlot(i);
+
+                break;
+            }
         }
     }
 
-    public void AddToInventory(ItemBehaviour itemBehaviour)
+    public void EquipItem(GameObject item)
     {
-        if (itemBehaviour == null)
+        if (item != null)
         {
-            print("joa");
-        }
+            EquipedItem = item;
 
-        if (Items[0] == -1)
-        {
-            Items[0] = itemBehaviour.ID;
-            EquipItem();
-            MoveSelectionImageToSlot(1);
-        }        
-        else if (Items[1] == -1 && Items[0] != -1)
-        {
-            Items[1] = itemBehaviour.ID;
-            EquipItem();
-            MoveSelectionImageToSlot(2);
+            ItemBehaviour itemBehaviour = item.GetComponent<ItemBehaviour>();
         }
-
-        //Austauschen: Droppen => Überschreiben
-        UpdateGUI();
     }
 
     public void UpdateGUI()
     {
-        if (Items[0] != -1)
+        ItemBehaviour itemBehaviour;
+
+        if (Items[0] != null)
         {
-            Slot1.sprite = Images[Items[0]];
+            itemBehaviour = Items[0].GetComponent<ItemBehaviour>();
+
+            print(itemBehaviour.ID);
+            Slot1.sprite = Images[itemBehaviour.ID];
         }
 
-        if (Items[1] != -1)
+
+        if (Items[1] != null)
         {
-            Slot2.sprite = Images[Items[1]];
+            itemBehaviour = Items[1].GetComponent<ItemBehaviour>();
+
+            print(itemBehaviour.ID);
+            Slot2.sprite = Images[itemBehaviour.ID];
         }
-    }
-
-    public void EquipItem()
-    {
-        EquipedItem = _ItemBehaviour.ID;
-
-        _ItemBehaviour.LoadItemBehaviour();
     }
 
     public void MoveSelectionImageToSlot(int slot)
     {
-        if (slot == 1)
+        if (slot == 0)
         {
             SelectionImage.enabled = true;
             SelectionImage.rectTransform.anchoredPosition = new Vector2(25, -25);
