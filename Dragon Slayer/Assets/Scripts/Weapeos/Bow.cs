@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bow : MonoBehaviour
@@ -31,30 +29,27 @@ public class Bow : MonoBehaviour
         LineRenderer l = gameObject.AddComponent<LineRenderer>();
         _Inventory = gameObject.GetComponent<Inventory>();
         _Interval = _SetInterval;
+
+
     }
 
     void Update()
-    {
-        IntervalTimer();
-        
+    {     
         if (Input.GetMouseButtonDown(0))
         {
-            if (_Inventory.EquipedItem == 1 || _Interval == 0)
-            {
-                print("Fire");
-
-                _Interval = _SetInterval;
-            }
+            FireWeapon();
         }
     }
 
-    void IntervalTimer()
+    void FireWeapon()
     {
-        _Interval -= Time.deltaTime;
-
-        if (_Interval <= 0)
+        if (_Inventory.EquipedItem == 1 )
         {
-            _Interval = 0;
+            print("Fire");
+
+            _Interval = _SetInterval;
+
+            print(_Interval);
         }
     }
 }
