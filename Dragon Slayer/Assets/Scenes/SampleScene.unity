@@ -2437,7 +2437,7 @@ MonoBehaviour:
   _Range: 0
   _Damage: 0
   _Velocity: 0
-  _SetInterval: 10
+  _Interval: 2
 --- !u!1 &1360320747
 GameObject:
   m_ObjectHideFlags: 0

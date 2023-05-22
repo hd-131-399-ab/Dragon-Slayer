@@ -7,17 +7,11 @@ public class Bow : MonoBehaviour
 
     public int _Damage;
     public float _Velocity;
-    public float _SetInterval;
+    public float _Interval;
 
-    private float _Interval;
-    private float mousePosX;
-    private float mousePosY;
+    private bool allowFire = true;
 
-    Color color = Color.clear;
-
-    RaycastHit2D hit;
-
-    Vector2 rayCastDirection;
+    private IEnumerator example;
 
     private Inventory _Inventory;
     private EnemyHealthScript _EnemyHealth;
@@ -26,30 +20,36 @@ public class Bow : MonoBehaviour
 
     private void Start()
     {
-        LineRenderer l = gameObject.AddComponent<LineRenderer>();
         _Inventory = gameObject.GetComponent<Inventory>();
-        _Interval = _SetInterval;
 
+        example = Example();
+    }
 
+    IEnumerator Example()
+    {
+        allowFire = false;
+
+        print(Time.time);
+
+        yield return new WaitForSeconds(_Interval);
+
+        print(Time.time);
     }
 
     void Update()
     {     
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && allowFire)
         {
-            FireWeapon();
+
+            StartCoroutine(Example());
         }
     }
 
     void FireWeapon()
     {
-        if (_Inventory.EquipedItem == 1 )
+        if (_Inventory.EquipedItem == 1)
         {
-            print("Fire");
-
-            _Interval = _SetInterval;
-
-            print(_Interval);
+            print("Shoot");
         }
     }
 }
