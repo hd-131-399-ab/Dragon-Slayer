@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordBehaviour : MonoBehaviour
+public class SwordBehaviour : ItemBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public SwordBehaviour()
+	{
+		ID = 2;
+	}
 
-    // Update is called once per frame
-    void Update()
+    public override void LoadItemBehaviour()
     {
-        
+        Player.AddComponent<Sword>();
+        //Player.AddComponent<AimingSystem>();
     }
 }

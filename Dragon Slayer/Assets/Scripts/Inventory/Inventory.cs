@@ -23,6 +23,8 @@ public class Inventory : MonoBehaviour
     {
         SelectionImage.enabled = false;
 
+        EquipedItem = null;
+
         Items = new GameObject[2];
         Items[0] = null;
         Items[1] = null;
