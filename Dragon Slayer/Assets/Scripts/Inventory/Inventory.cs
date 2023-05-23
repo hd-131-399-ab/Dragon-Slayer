@@ -32,14 +32,24 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Alpha1))
         {
+            MoveSelectionImageToSlot(0);
             EquipItem(Items[0]);
             MoveSelectionImageToSlot(0);
         }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
+            MoveSelectionImageToSlot(1);
             EquipItem(Items[1]);
             MoveSelectionImageToSlot(1);
         }
+        //else if (Input.GetKey(KeyCode.R))
+        //{
+        //    DropItem(EquipedItem);
+
+        //    EquipedItem = null;
+        //    SelectionImage.enabled = false;
+        //    UpdateGUI();
+        //}
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -108,5 +118,11 @@ public class Inventory : MonoBehaviour
             SelectionImage.enabled = true;
             SelectionImage.rectTransform.anchoredPosition = new Vector2(95, -25);
         }
+    }
+
+    public void DropItem(GameObject item)
+    {
+        item.SetActive(true);
+        item.gameObject.transform.position = gameObject.transform.position;
     }
 }
