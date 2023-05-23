@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class AimingSystem : MonoBehaviour
 {
-    private float mousePosX;
-    private float mousePosY;
+    [HideInInspector]
+    public static float mousePosX;
+    public static float mousePosY;
 
     private float _CalculatedDiffrenceX;
     private float _CalculatedDiffrenceY;

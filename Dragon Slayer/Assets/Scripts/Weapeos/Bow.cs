@@ -1,20 +1,17 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bow : MonoBehaviour
 {
-    public int _Range;
+    private float _Interval;
 
-    public int _Damage;
-    public float _Velocity;
-    public float _Interval;
+    public float _Range;
 
     private bool allowFire = true;
 
     private Inventory _Inventory;
     private EnemyHealthScript _EnemyHealth;
-
-    private GameObject _HitEnemy;
 
     private void Start()
     {
@@ -22,29 +19,34 @@ public class Bow : MonoBehaviour
 
         _Interval = 2;
     }
+
     void Update()
-    {     
+    {
         if (Input.GetMouseButtonDown(0) && allowFire)
         {
 
-            StartCoroutine(Example());
+            StartCoroutine(FireDelay());
         }
     }
 
-    IEnumerator Example()
+    IEnumerator FireDelay()
     {
         FireWeapon();
-        
-        yield return new WaitForSeconds(_Interval);
+
+        yield return new WaitForSecondsRealtime(_Interval);
 
         allowFire = true;
     }
 
     void FireWeapon()
     {
-        // if equiped
-        print("Shoot");
+        if (_Inventory.EquipedItem.ToShortString(3) == "Bow")
+        {
+            print("Shoot");
 
-        allowFire = false;
+            allowFire = false;
+            //Instantiate();
+        }
+
     }
 }

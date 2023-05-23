@@ -86,7 +86,7 @@ public class Inventory : MonoBehaviour
     {
         EquipedItem = item;
 
-        //item.GetComponent<ItemBehaviour>().LoadItemBehaviour();
+        item.GetComponent<ItemBehaviour>().LoadItemBehaviour();
     }
 
     public void UpdateGUI()

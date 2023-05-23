@@ -2415,8 +2415,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36b684cc45bd5a49b41a2d29289756a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   SwordSwing: {fileID: 3058813335963414169, guid: 06a60e4354aa21743823f255cb6f47fc, type: 3}
   MousePos: {x: 0, y: 0}
+=======
+  _Range: 0
+>>>>>>> Stashed changes
 --- !u!1 &1360320747
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,7 +2656,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6868454669860345071, guid: fe0a58581a5b8e0448396cf548b6062b, type: 3}
+    - target: {fileID: -8219831625035561506, guid: fe0a58581a5b8e0448396cf548b6062b, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1344484332}
@@ -2712,7 +2716,8 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 1.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: fe0a58581a5b8e0448396cf548b6062b, type: 3}
 --- !u!1 &1750404340
 GameObject:
@@ -2843,10 +2848,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6868454669860345071, guid: fe0a58581a5b8e0448396cf548b6062b, type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 1344484332}
     - target: {fileID: 6256595438882327091, guid: fe0a58581a5b8e0448396cf548b6062b, type: 3}
       propertyPath: m_Name
       value: Organspende (1)
