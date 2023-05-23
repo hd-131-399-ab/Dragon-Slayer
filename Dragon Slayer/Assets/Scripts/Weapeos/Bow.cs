@@ -42,11 +42,9 @@ public class Bow : MonoBehaviour
 
     void FireWeapon()
     {
-        if (_Inventory.EquipedItem == 1)
-        {
-            print("Shoot");
+        // if equiped
+        print("Shoot");
 
-            allowFire = false;
-        }
+        allowFire = false;
     }
 }
