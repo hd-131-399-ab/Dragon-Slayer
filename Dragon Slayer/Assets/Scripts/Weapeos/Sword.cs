@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Sword : MonoBehaviour
@@ -11,7 +12,7 @@ public class Sword : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             MousePos = Input.mousePosition;
 
@@ -21,8 +22,6 @@ public class Sword : MonoBehaviour
 
     void Swing()
     {
-        float angle = Vector2.Angle(gameObject.transform.position, MousePos);
-
-        Instantiate(SwordSwing, gameObject.transform.position, Quaternion.identity);
+        
     }
 }
