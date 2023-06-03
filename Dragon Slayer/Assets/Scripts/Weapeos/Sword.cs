@@ -8,20 +8,26 @@ public class Sword : MonoBehaviour
 {
     public GameObject SwordSwing;
 
-    public Vector2 MousePos;
+    public Vector3 MousePos;
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            GameObject swing = Instantiate(SwordSwing);
+
             MousePos = Input.mousePosition;
 
-            Swing();
+            Swing(swing);
         }
     }
 
-    void Swing()
+    void Swing(GameObject swing)
     {
-        
+        MousePos = Camera.main.ScreenToWorldPoint(MousePos);
+
+        Vector2 direction = new(MousePos.x - swing.transform.position.x, MousePos.y - swing.transform.position.y);
+
+        swing.transform.up = direction;
     }
 }
